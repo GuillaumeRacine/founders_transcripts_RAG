@@ -1,0 +1,69 @@
+# Configuration file for RAG Knowledge Base
+app:
+  name: "Founder Psychology RAG"
+  version: "1.0.0"
+  data_dir: "./data"
+  vector_db_dir: "./vector_db"
+  
+# Default model configurations
+models:
+  default: "openai"
+  openai:
+    model: "gpt-4-turbo"
+    temperature: 0.1
+    max_tokens: 4000
+    api_key_env: "OPENAI_API_KEY"
+  anthropic:
+    model: "claude-3-5-sonnet-20241022"
+    temperature: 0.1
+    max_tokens: 4000
+    api_key_env: "ANTHROPIC_API_KEY"
+  ollama:
+    model: "llama3.1:8b"
+    temperature: 0.1
+    max_tokens: 4000
+    base_url: "http://localhost:11434"
+
+# Vector database configuration
+vector_db:
+  type: "chroma"
+  collection_name: "founder_psychology_docs"
+  persist_directory: "./vector_db"
+  
+# Embedding configuration
+embeddings:
+  model: "text-embedding-3-large"
+  api_key_env: "OPENAI_API_KEY"
+  dimensions: 3072
+
+# Document processing configuration
+document_processing:
+  chunk_size: 400
+  chunk_overlap: 50
+  separators: ["\n\n", "\n", ". ", " ", ""]
+  preserve_metadata: true
+  supported_formats: [".pdf", ".txt", ".md", ".docx"]
+
+# Research prompt configurations
+research:
+  default_instructions: |
+    You are an expert researcher specializing in founder psychology and entrepreneurship.
+    Focus on psychological patterns, behavioral insights, success factors, and mental frameworks.
+    Always cite your sources and provide specific examples from the knowledge base.
+  
+  prompt_templates:
+    - name: "psychology_analysis"
+      description: "Analyze psychological patterns in founder behavior"
+    - name: "biography_insights"
+      description: "Extract key insights from founder biographies"
+    - name: "trend_identification"
+      description: "Identify trends and patterns across multiple sources"
+    - name: "story_research"
+      description: "Research potential stories for content creation"
+
+# CLI configuration
+cli:
+  interactive_mode: true
+  show_sources: true
+  max_results: 5
+  output_format: "rich"
