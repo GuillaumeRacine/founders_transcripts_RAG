@@ -5,6 +5,8 @@ This is a Terminal-based RAG (Retrieval-Augmented Generation) Knowledge Base sys
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
+GitHub Repository: https://github.com/GuillaumeRacine/founders_transcripts_RAG
+Target Use Case: Founder psychology analysis for Substack content creation with ~1000 documents
 
 # System Architecture
 
