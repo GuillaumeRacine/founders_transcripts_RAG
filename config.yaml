@@ -22,6 +22,7 @@ models:
     model: "llama3.1:8b"
     temperature: 0.1
     max_tokens: 4000
+    api_key_env: ""
     base_url: "http://localhost:11434"
 
 # Vector database configuration
